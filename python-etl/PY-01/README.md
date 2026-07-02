@@ -29,3 +29,9 @@ import pandas as pd
 df = pd.read_parquet("output/claims_enriched.parquet")
 
 print(df)
+<br/>
+<br/>
+<br/>
+<br/>
+Go into virtual environment: <br/>
+source venv/bin/activate
