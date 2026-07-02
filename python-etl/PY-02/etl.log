@@ -1,0 +1,45 @@
+2026-07-02 18:50:46,309 INFO Starting extraction
+2026-07-02 18:50:56,312 ERROR RetryError[<Future at 0x7496cbb05340 state=finished raised OperationalError>]
+2026-07-02 18:52:58,568 INFO Starting extraction
+2026-07-02 18:53:08,570 ERROR Pipeline failed
+Traceback (most recent call last):
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/extract.py", line 21, in get_connection
+    return psycopg2.connect(
+           ^^^^^^^^^^^^^^^^^
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/venv/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/main.py", line 71, in main
+    policy_df, claims_df = extract_data(
+                           ^^^^^^^^^^^^^
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/extract.py", line 32, in extract_data
+    conn = get_connection()
+           ^^^^^^^^^^^^^^^^
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 371, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/advanced-data-engineering-POC/python-etl/PY-02/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 414, in exc_check
+    raise retry_exc from fut.exception()
+tenacity.RetryError: RetryError[<Future at 0x7b0e94388170 state=finished raised OperationalError>]
+2026-07-02 18:55:58,725 INFO Starting extraction
+2026-07-02 18:55:59,584 INFO Starting transformation
+2026-07-02 18:55:59,871 INFO File written to output/claims_enriched.parquet
+2026-07-02 19:05:18,646 INFO Starting extraction
+2026-07-02 19:05:19,310 INFO Starting transformation
+2026-07-02 19:05:19,315 INFO DRY RUN: Would write 5 rows to output/claims_enriched.parquet
