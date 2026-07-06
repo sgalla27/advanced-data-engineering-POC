@@ -1,7 +1,7 @@
--- =====================================================
+
 -- Query 1
 -- Rank policies by premium within each policy_type
--- =====================================================
+
 
 SELECT
     policy_id,
@@ -14,11 +14,11 @@ SELECT
 FROM policy;
 
 
--- =====================================================
+
 -- Query 2
 -- Running total of claim amounts per policy
 -- ordered by claim_date
--- =====================================================
+
 
 SELECT
     claim_id,
@@ -34,11 +34,10 @@ SELECT
 FROM claims;
 
 
--- =====================================================
--- Query 3
+
 -- Current claim amount vs previous claim amount
 -- using LAG
--- =====================================================
+
 
 SELECT
     claim_id,
@@ -52,11 +51,9 @@ SELECT
 FROM claims;
 
 
--- =====================================================
 -- Query 4
 -- CTE: Policies with more than 1 OPEN claim
 -- Potential fraud flag
--- =====================================================
 
 WITH open_claims AS (
     SELECT
@@ -75,11 +72,11 @@ FROM open_claims
 WHERE open_claim_count > 1;
 
 
--- =====================================================
+
 -- Query 5
 -- Classify claims into LOW/MED/HIGH buckets
 -- using NTILE(3)
--- =====================================================
+
 
 WITH claim_buckets AS (
     SELECT

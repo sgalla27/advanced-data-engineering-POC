@@ -43,3 +43,6 @@ tenacity.RetryError: RetryError[<Future at 0x7b0e94388170 state=finished raised 
 2026-07-02 19:05:18,646 INFO Starting extraction
 2026-07-02 19:05:19,310 INFO Starting transformation
 2026-07-02 19:05:19,315 INFO DRY RUN: Would write 5 rows to output/claims_enriched.parquet
+2026-07-06 14:24:11,294 INFO Starting extraction
+2026-07-06 14:24:11,705 INFO Starting transformation
+2026-07-06 14:24:12,018 INFO File written to output/claims_enriched.parquet
