@@ -7,4 +7,5 @@
 </br>
 Claim event sequences with paths
 <br/>
+
 ![alt text](image-2.png)
